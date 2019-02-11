@@ -1,17 +1,22 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import AllCandies from "./AllCandies";
+import Navbar from './Navbar'
+import Home from './Home'
 
 const Root = () => {
   return (
-    <div>
-      <nav>
-        Goodie Bag
-      </nav>
-      <main>
-        <h1>Welcome to the Goodie Bag!</h1>
-        <p>What a nice home page for your goodies!</p>
-      </main>
-    </div>
-  )
-}
+    <Router>
+      <div>
+        <Navbar />
+        <Switch>
+          <Route path='/candies' component={AllCandies} />
+          <Route path='/' component={Home} />
+        </Switch>
 
-export default Root
+      </div>
+    </Router>
+  );
+};
+
+export default Root;
